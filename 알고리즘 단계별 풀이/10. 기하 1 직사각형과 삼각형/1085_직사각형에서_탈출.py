@@ -1,0 +1,17 @@
+# import sys
+# input = sys.stdin.readline  # 이렇게 하면 input()처럼 사용 가능
+
+import sys
+sys.stdin = open("input.txt", "r")
+
+# 한수는 지금 (x, y)에 있다. 직사각형은 각 변이 좌표축에 평행하고, 왼쪽 아래 꼭짓점은 (0, 0), 오른쪽 위 꼭짓점은 (w, h)에 있다.
+# 직사각형의 경계선까지 가는 거리의 최솟값을 구하는 프로그램을 작성하시오.
+
+x, y, w, h = list(map(int, input().split()))
+distance_array = [x, y, w-x, h-y]
+
+min_distance = 1000
+for distance in distance_array:
+    if min_distance > distance:
+        min_distance = distance
+print(min_distance)
